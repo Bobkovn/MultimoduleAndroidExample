@@ -5,11 +5,11 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.example.core.MediatorProvider
-import com.example.featurefirst.FirstFragment
-import com.example.featurefourth.FourthScreenMediatorImpl
-import com.example.featuresecond.SecondScreenMediatorImpl
-import com.example.featurethird.ThirdScreenMediatorImpl
+import com.example.multimodule.core.MediatorProvider
+import com.example.multimodule.screens.FirstFragment
+import com.example.multimodule.screens.FourthScreenMediatorImpl
+import com.example.multimodule.screens.SecondScreenMediatorImpl
+import com.example.multimodule.screens.ThirdScreenMediatorImpl
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.container, FirstFragment())
+            .replace(R.id.container,
+                FirstFragment()
+            )
             .commit()
 
         fab.setOnClickListener { view ->
@@ -33,9 +35,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun provideMediators() {
-        MediatorProvider.secondScreenMediator = SecondScreenMediatorImpl(R.id.container, supportFragmentManager)
-        MediatorProvider.thirdScreenMediator = ThirdScreenMediatorImpl(R.id.container, supportFragmentManager)
-        MediatorProvider.fourthScreenMediator = FourthScreenMediatorImpl(R.id.container, supportFragmentManager)
+        MediatorProvider.secondScreenMediator =
+            SecondScreenMediatorImpl(
+                R.id.container,
+                supportFragmentManager
+            )
+        MediatorProvider.thirdScreenMediator =
+            ThirdScreenMediatorImpl(
+                R.id.container,
+                supportFragmentManager
+            )
+        MediatorProvider.fourthScreenMediator =
+            FourthScreenMediatorImpl(
+                R.id.container,
+                supportFragmentManager
+            )
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

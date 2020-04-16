@@ -1,8 +1,2 @@
 rootProject.name='MultimoduleExample'
 include ':app'
-include ':featurefirst'
-include ':featuresecond'
-include ':featurethird'
-include ':featurefourth'
-include ':core'
-include ':featurefifth'
